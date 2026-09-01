@@ -59,6 +59,15 @@
   </item>
 </menu>
 
+<menu id="apps-comms-menu" label="Communications">
+  <item label="Discord">
+    <action name="Execute">
+      <command>discord</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+</menu>
+
 <menu id="apps-fileman-menu" label="File Managers">
   <item label="Thunar">
     <action name="Execute">
@@ -109,6 +118,7 @@
   <menu id="apps-term-menu"/>
   <menu id="apps-dev-menu"/>
   <menu id="apps-net-menu"/>
+  <menu id="apps-comms-menu"/>
   <menu id="apps-fileman-menu"/>
   <separator label="System" />
   <menu id="system-menu"/>
