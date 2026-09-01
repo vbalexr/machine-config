@@ -1,0 +1,6 @@
+#!/bin/sh
+# Re-downloads the resident FIDO2 SSH key's public stub from the attached YubiKey.
+# Safe to run on any new machine; requires the YubiKey plugged in and its FIDO2 PIN.
+mkdir -p "$HOME/.ssh"
+chmod 700 "$HOME/.ssh"
+cd "$HOME/.ssh" && ssh-keygen -K
