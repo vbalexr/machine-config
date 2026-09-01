@@ -1,5 +1,5 @@
-# General-purpose FIDO2 resident key (private key material never leaves the YubiKey).
-# On a new machine, run `ssh-keygen -K` from ~/.ssh to re-download this key's public stub.
+# General-purpose software key. Private key is stored age/YubiKey-encrypted in the
+# machine-config repo and decrypted to this path by `chezmoi apply` on each machine.
 Host *
-    IdentityFile ~/.ssh/id_ed25519_sk_personal
+    IdentityFile ~/.ssh/id_ed25519_personal
     IdentitiesOnly yes
