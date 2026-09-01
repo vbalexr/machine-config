@@ -1,0 +1,33 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias ll='ls -lah --color=auto'
+alias grep='grep --color=auto'
+alias k='kubectl'
+
+# bash-completion (Arch's package hooks into /etc/bash.bashrc already,
+# this covers the case it doesn't for some reason)
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  fi
+fi
+
+# Tool completions (only loaded if the tool is actually installed)
+command -v kubectl >/dev/null 2>&1 && source <(kubectl completion bash)
+command -v flux >/dev/null 2>&1 && source <(flux completion bash)
+command -v kustomize >/dev/null 2>&1 && source <(kustomize completion bash)
+command -v k >/dev/null 2>&1 || true
+complete -o default -F __start_kubectl k 2>/dev/null
+
+# Prompt
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init bash)"
+else
+  PS1='[\u@\h \W]\$ '
+fi

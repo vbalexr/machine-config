@@ -1,0 +1,15 @@
+#!/bin/sh
+# User autostart for Openbox
+
+# Compositor (shadows, transparency, tear-free rendering)
+picom &
+
+# Tray applets
+nm-applet &
+pasystray &
+
+# Taskbar
+tint2 &
+
+# Desktop system-stats widget
+conky -c ~/.config/conky/conky.conf &
