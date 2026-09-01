@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Declarative package install, driven by .chezmoidata/packages.yaml.
+# Re-runs automatically whenever that file (or this script) changes,
+# because chezmoi hashes the rendered contents of run_onchange_ scripts.
+set -euo pipefail
+
+pacman_pkgs=(
+{{- range .packages.pacman }}
+  "{{ . }}"
+{{- end }}
+)
+aur_pkgs=(
+{{- range .packages.aur }}
+  "{{ . }}"
+{{- end }}
+)
+
+echo "==> pacman -S --needed ${pacman_pkgs[*]}"
+sudo pacman -S --needed --noconfirm "${pacman_pkgs[@]}"
+
+if [ "${#aur_pkgs[@]}" -gt 0 ]; then
+  if command -v paru >/dev/null 2>&1; then
+    echo "==> paru -S --needed ${aur_pkgs[*]}"
+    paru -S --needed --noconfirm "${aur_pkgs[@]}"
+  else
+    echo "paru not found; install these AUR packages manually, then re-run 'chezmoi apply': ${aur_pkgs[*]}" >&2
+  fi
+fi

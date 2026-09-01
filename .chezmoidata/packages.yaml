@@ -1,0 +1,20 @@
+packages:
+  # Installed via `pacman -S --needed`.
+  pacman:
+    - age
+    - chezmoi
+    - gitleaks
+    - pcsclite
+    - pcsc-tools
+    - libfido2
+    - github-cli
+    - nvm
+    - dbeaver
+  # Installed via `paru -S --needed` (not in the official repos).
+  aur:
+    - age-plugin-yubikey
+    - yubikey-manager
+
+# Installed via `npm install -g` under the nvm-managed Node (no sudo).
+npm_globals:
+  - omnisql-mcp

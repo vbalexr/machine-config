@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Global npm installs under nvm's Node (no sudo needed), driven by
+# .chezmoidata/packages.yaml's npm_globals list.
+set -euo pipefail
+
+export NVM_DIR="${HOME}/.nvm"
+for candidate in /usr/share/nvm/init-nvm.sh /usr/share/nvm/nvm.sh; do
+  if [ -f "${candidate}" ]; then
+    # shellcheck disable=SC1090
+    source "${candidate}"
+    break
+  fi
+done
+nvm use default >/dev/null
+
+pkgs=(
+{{- range .npm_globals }}
+  "{{ . }}"
+{{- end }}
+)
+
+for pkg in "${pkgs[@]}"; do
+  echo "==> npm install -g ${pkg}"
+  npm install -g "${pkg}"
+done
