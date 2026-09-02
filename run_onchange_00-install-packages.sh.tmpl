@@ -26,3 +26,8 @@ if [ "${#aur_pkgs[@]}" -gt 0 ]; then
     echo "paru not found; install these AUR packages manually, then re-run 'chezmoi apply': ${aur_pkgs[*]}" >&2
   fi
 fi
+
+if command -v tailscale >/dev/null 2>&1; then
+  echo "==> systemctl enable --now tailscaled"
+  sudo systemctl enable --now tailscaled
+fi

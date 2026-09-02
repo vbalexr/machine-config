@@ -11,10 +11,12 @@ packages:
     - nvm
     - dbeaver
     - discord
+    - tailscale
   # Installed via `paru -S --needed` (not in the official repos).
   aur:
     - age-plugin-yubikey
     - yubikey-manager
+    - zen-browser-bin
 
 # Installed via `npm install -g` under the nvm-managed Node (no sudo).
 npm_globals:

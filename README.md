@@ -36,6 +36,10 @@ Personal machine setup, managed with [chezmoi](https://www.chezmoi.io/), secured
    ssh -T git@github.com
    gitleaks detect --source ~/.local/share/chezmoi
    ```
+6. Authenticate Tailscale on this machine (one-time, per machine — `run_onchange_00` enables and starts `tailscaled`, but joining the tailnet needs an interactive login):
+   ```
+   sudo tailscale up
+   ```
 
 ## Adding new secrets
 
