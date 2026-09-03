@@ -24,9 +24,9 @@
       <startupnotify><enabled>yes</enabled></startupnotify>
     </action>
   </item>
-  <item label="Lens (Kubernetes IDE)">
+  <item label="OpenLens (Kubernetes IDE)">
     <action name="Execute">
-      <command>lens-desktop</command>
+      <command>open-lens</command>
       <startupnotify><enabled>yes</enabled></startupnotify>
     </action>
   </item>
