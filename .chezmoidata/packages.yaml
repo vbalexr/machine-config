@@ -18,6 +18,7 @@ packages:
     - age-plugin-yubikey
     - yubikey-manager
     - zen-browser-bin
+    - openlens-bin
 
 # Installed via `npm install -g` under the nvm-managed Node (no sudo).
 npm_globals:
