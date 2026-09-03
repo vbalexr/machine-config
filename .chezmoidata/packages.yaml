@@ -12,6 +12,7 @@ packages:
     - dbeaver
     - discord
     - tailscale
+    - claude-code
   # Installed via `paru -S --needed` (not in the official repos).
   aur:
     - age-plugin-yubikey
