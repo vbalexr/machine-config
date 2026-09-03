@@ -1,17 +1,5 @@
 {
   "theme": "dark",
   "model": "sonnet",
-  "effortLevel": "high",
-  "hooks": {
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"$HOME/.claude/discord-notify.sh\" 2>/dev/null || true"
-          }
-        ]
-      }
-    ]
-  }
+  "effortLevel": "high"
 }
