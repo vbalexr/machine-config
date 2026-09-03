@@ -19,6 +19,7 @@ packages:
     - yubikey-manager
     - zen-browser-bin
     - openlens-bin
+    - bambu-studio
 
 # Installed via `npm install -g` under the nvm-managed Node (no sudo).
 npm_globals:
