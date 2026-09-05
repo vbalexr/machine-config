@@ -40,7 +40,7 @@ border_color_pressed = #6c7086 0
 
 #-------------------------------------
 # Panel
-panel_items = TSC
+panel_items = TBSC
 panel_size = 100% 32
 panel_margin = 0 0
 panel_padding = 6 0 6
@@ -143,11 +143,11 @@ battery_low_status = 10
 battery_low_cmd = notify-send "Battery low"
 battery_full_cmd =
 battery_font_color = #cdd6f4 100
-bat1_format =
-bat2_format =
+bat1_format = %p
+bat2_format = %t
 battery_padding = 1 0
 battery_background_id = 0
-battery_hide = 101
+battery_hide = never
 battery_lclick_command =
 battery_rclick_command =
 battery_mclick_command =
