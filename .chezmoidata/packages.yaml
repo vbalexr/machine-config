@@ -13,6 +13,7 @@ packages:
     - discord
     - tailscale
     - claude-code
+    - talosctl
   # Installed via `paru -S --needed` (not in the official repos).
   aur:
     - age-plugin-yubikey
