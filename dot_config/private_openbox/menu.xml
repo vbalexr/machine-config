@@ -102,6 +102,12 @@
 </menu>
 
 <menu id="system-menu" label="System">
+  <item label="Flameshot (screenshot)">
+    <action name="Execute">
+      <command>flameshot gui</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
   <item label="Volume Control (pavucontrol)">
     <action name="Execute">
       <command>pavucontrol</command>

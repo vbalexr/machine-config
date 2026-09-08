@@ -12,11 +12,17 @@ packages:
     - nvm
     - dbeaver
     - discord
+    - flameshot
     - tailscale
     - claude-code
     - talosctl
     - vscodium
     - conky
+    - gst-plugins-base
+    - gst-plugins-good
+    - gst-plugins-bad
+    - gst-plugins-ugly
+    - gst-libav
   # Installed via `paru -S --needed` (not in the official repos).
   aur:
     - age-plugin-yubikey
