@@ -11,7 +11,7 @@ Personal machine setup, managed with [chezmoi](https://www.chezmoi.io/), secured
 
 1. Install the minimum needed to bootstrap chezmoi itself (everything else in `.chezmoidata/packages.yaml`, including `gitleaks`, `nvm`, and `dbeaver`, is installed automatically in step 3 by `run_onchange_00-install-packages.sh`):
    ```
-   sudo pacman -S --needed age chezmoi pcsclite pcsc-tools libfido2 github-cli
+   sudo pacman -S --needed age chezmoi pcsclite pcsc-tools libfido2 github-cli paru
    sudo systemctl enable --now pcscd
    paru -S age-plugin-yubikey yubikey-manager
    ```

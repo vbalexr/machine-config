@@ -8,6 +8,7 @@ packages:
     - pcsc-tools
     - libfido2
     - github-cli
+    - paru
     - nvm
     - dbeaver
     - discord
@@ -15,6 +16,7 @@ packages:
     - claude-code
     - talosctl
     - vscodium
+    - conky
   # Installed via `paru -S --needed` (not in the official repos).
   aur:
     - age-plugin-yubikey
