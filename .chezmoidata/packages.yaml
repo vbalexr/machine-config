@@ -23,6 +23,8 @@ packages:
     - gst-plugins-bad
     - gst-plugins-ugly
     - gst-libav
+    - xarchiver
+    - snixembed
   # Installed via `paru -S --needed` (not in the official repos).
   aur:
     - age-plugin-yubikey
@@ -30,6 +32,7 @@ packages:
     - zen-browser-bin
     - openlens-bin
     - bambu-studio
+    - eve-preview-manager
 
 # Installed via `npm install -g` under the nvm-managed Node (no sudo).
 npm_globals:
