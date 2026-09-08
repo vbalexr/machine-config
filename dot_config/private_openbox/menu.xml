@@ -75,6 +75,12 @@
       <startupnotify><enabled>yes</enabled></startupnotify>
     </action>
   </item>
+  <item label="EVE Preview Manager">
+    <action name="Execute">
+      <command>eve-preview-manager</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
 </menu>
 
 <menu id="apps-3dprint-menu" label="3D Printing">
