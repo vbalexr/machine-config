@@ -1,0 +1,8 @@
+[Unit]
+Description=Check chezmoi config repo for remote changes
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/chezmoi-check-updates.sh
