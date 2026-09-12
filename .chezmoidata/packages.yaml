@@ -33,6 +33,7 @@ packages:
     - openlens-bin
     - bambu-studio
     - eve-preview-manager
+    - winbox
 
 # Installed via `npm install -g` under the nvm-managed Node (no sudo).
 npm_globals:

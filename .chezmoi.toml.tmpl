@@ -1,5 +1,28 @@
 encryption = "age"
 
+{{/*
+  Two ways to decrypt: the YubiKey (day-to-day), or a passphrase-protected
+  backup identity for machines/situations where the YubiKey isn't available.
+  The backup identity lives encrypted (with a passphrase, via `age -p`) at
+  ~/.config/chezmoi/age-identity-backup.txt.age, which IS tracked in this repo
+  -- that's safe, since the passphrase (not this repo) is what protects it.
+  To use it: `age -d -o ~/.config/chezmoi/age-identity-backup-decrypted.txt
+  ~/.config/chezmoi/age-identity-backup.txt.age`, then re-run `chezmoi apply`.
+  That decrypted file must never itself be committed here.
+*/}}
+{{- $backupIdentity := joinPath .chezmoi.homeDir ".config/chezmoi/age-identity-backup-decrypted.txt" }}
+
 [age]
+{{- if stat $backupIdentity }}
+    identities = [
+        "{{ .chezmoi.homeDir }}/.config/chezmoi/age-yubikey-identity.txt",
+        "{{ $backupIdentity }}",
+    ]
+{{- else }}
     identity = "{{ .chezmoi.homeDir }}/.config/chezmoi/age-yubikey-identity.txt"
-    recipient = "age1yubikey1qwnrvx8l7pe87klen4l0vpxjwkg9ggk655ffeln6c5trzserxtw6kkytn96"
+{{- end }}
+    recipients = [
+        "age1yubikey1qwnrvx8l7pe87klen4l0vpxjwkg9ggk655ffeln6c5trzserxtw6kkytn96",
+        # TODO: replace with the backup identity's public key once generated.
+        "age1REPLACE_WITH_BACKUP_RECIPIENT",
+    ]
