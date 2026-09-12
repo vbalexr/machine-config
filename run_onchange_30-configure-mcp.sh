@@ -19,3 +19,18 @@ if ! claude mcp get omnisql >/dev/null 2>&1; then
 else
   echo "==> omnisql MCP server already registered"
 fi
+
+netbox_mcp_token_file="${HOME}/.claude/netbox-mcp-token"
+if [ -f "${netbox_mcp_token_file}" ]; then
+  # Re-register unconditionally so a rotated token in the token file is
+  # always picked up -- `claude mcp add` errors on a duplicate name, so any
+  # existing registration (possibly with a stale token) is removed first.
+  if claude mcp get netbox >/dev/null 2>&1; then
+    claude mcp remove --scope user netbox >/dev/null 2>&1
+  fi
+  echo "==> Registering netbox MCP server (user scope)"
+  claude mcp add --scope user --transport http netbox http://10.1.0.4:8087/mcp \
+    --header "Authorization: Bearer $(cat "${netbox_mcp_token_file}")"
+else
+  echo "==> Skipping netbox MCP server: ${netbox_mcp_token_file} not found (LAN-only, requires the NetBox box's homelab network)"
+fi
