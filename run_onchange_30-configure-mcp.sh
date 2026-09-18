@@ -29,8 +29,8 @@ if [ -f "${netbox_mcp_token_file}" ]; then
     claude mcp remove --scope user netbox >/dev/null 2>&1
   fi
   echo "==> Registering netbox MCP server (user scope)"
-  claude mcp add --scope user --transport http netbox http://10.1.0.4:8087/mcp \
+  claude mcp add --scope user --transport http netbox https://netbox.vbalex.com/mcp \
     --header "Authorization: Bearer $(cat "${netbox_mcp_token_file}")"
 else
-  echo "==> Skipping netbox MCP server: ${netbox_mcp_token_file} not found (LAN-only, requires the NetBox box's homelab network)"
+  echo "==> Skipping netbox MCP server: ${netbox_mcp_token_file} not found"
 fi
