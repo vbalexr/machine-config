@@ -8,6 +8,14 @@ packages:
     - pcsc-tools
     - libfido2
     - github-cli
+    - git
+    - kubectl
+    - helm
+    - kustomize
+    - fluxcd
+    - sops
+    - yq
+    - pre-commit
     - paru
     - nvm
     - dbeaver
