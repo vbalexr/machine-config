@@ -34,3 +34,24 @@ if [ -f "${netbox_mcp_token_file}" ]; then
 else
   echo "==> Skipping netbox MCP server: ${netbox_mcp_token_file} not found"
 fi
+
+mikromcp_env_file="${HOME}/.claude/mikromcp-env"
+if [ -f "${mikromcp_env_file}" ]; then
+  # Re-register unconditionally so rotated credentials in the env file are
+  # always picked up -- `claude mcp add` errors on a duplicate name, so any
+  # existing registration (possibly with stale credentials) is removed first.
+  if claude mcp get mikromcp >/dev/null 2>&1; then
+    claude mcp remove --scope user mikromcp >/dev/null 2>&1
+  fi
+  echo "==> Registering mikromcp MCP server (user scope)"
+  # shellcheck disable=SC1090
+  set -a
+  source "${mikromcp_env_file}"
+  set +a
+  claude mcp add --scope user mikromcp \
+    -e "SEBASTIAN_USER=${SEBASTIAN_USER}" \
+    -e "SEBASTIAN_PASS=${SEBASTIAN_PASS}" \
+    -- mikromcp serve
+else
+  echo "==> Skipping mikromcp MCP server: ${mikromcp_env_file} not found"
+fi

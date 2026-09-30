@@ -1,0 +1,9 @@
+routers:
+  sebas-tian:
+    host: "10.0.0.8"
+    port: 80
+    deviceType: "swos"
+    credentials:
+      source: "env"
+      envPrefix: "SEBASTIAN"
+    tags: ["access", "layer2", "home"]
